@@ -31,5 +31,12 @@
 			</div> 					
 		</div>
 	</div>
+    
+  	<div id="domain2ip">
+    	<form method="get" action="query.php" >
+        <input name="input" placeholder="Enter Domain or IP" />
+        <button type="submit" value="Find IP">Find IP Address</button>
+        </form>
+    </div>
 </body>
 </html>
