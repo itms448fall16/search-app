@@ -12,7 +12,7 @@
 		<form action="query.php">
 			<div class="row">
 				<div class="col-sm-12 text-center">
-					<h1>Shodan/Census</h1>
+					<h1>Shodan/Censys</h1>
 					<input name="query"  placeholder="Search" />
 				</div> 
 			</div>
