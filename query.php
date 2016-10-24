@@ -86,7 +86,7 @@ function orgShodan(){
  * Start of API for census
  *
  */
-/*
+
 function censys($i)
 {
     echo "<br /><br /><br /><hr>";//ip address passed in from ip-api.com
@@ -96,7 +96,7 @@ function censys($i)
      * unsure how to authenticate
      * error: {"status": "error", "error_type": "unathorized", "error": "Unauthorized. You must authenticate with a valid API ID and secret."}
      */
-/*
+
     $API_ID="7ac0c4fa-97d3-4d8d-801d-085f7a279928";
     $Secret = "X0TjXpDMzWTgV1F1QVFukOSyMImL7Efm";
     $censys_url = "https://www.censys.io/api/v1/view/ipv4/$ip";
@@ -113,7 +113,7 @@ function censys($i)
     else {
         var_dump($err);
     }
-    //$decoded = json_decode($curl_response, true);
-}*/
+    $decoded = json_decode($curl_response, true);
+}
 ?>
 
