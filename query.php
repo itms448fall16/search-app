@@ -32,7 +32,7 @@ $ip_add = $decoded['query'];
 print($ip_add);
 //pass ip address to functions
 shodan($ip_add);
-//censys($ip_add);
+censys($ip_add);
 //Ends geting ip from domain
 
 
@@ -90,6 +90,8 @@ function orgShodan(){
 function censys($i)
 {
     echo "<br /><br /><br /><hr>";//ip address passed in from ip-api.com
+	
+	
     $ip = $i;
     /*
      * url to censys api
@@ -97,13 +99,15 @@ function censys($i)
      * error: {"status": "error", "error_type": "unathorized", "error": "Unauthorized. You must authenticate with a valid API ID and secret."}
      */
 
-    $API_ID="7ac0c4fa-97d3-4d8d-801d-085f7a279928";
-    $Secret = "X0TjXpDMzWTgV1F1QVFukOSyMImL7Efm";
+    $UID="7ac0c4fa-97d3-4d8d-801d-085f7a279928";
+    $SECRET = "X0TjXpDMzWTgV1F1QVFukOSyMImL7Efm";
+	$header = ("UID: " + $UID, "SECRET: " + $SECRET);
     $censys_url = "https://www.censys.io/api/v1/view/ipv4/$ip";
     $ch = curl_init();
     curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
     curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
     curl_setopt($ch, CURLOPT_URL, $censys_url);
+	curl_setopt($ch, CURLOPT_HTTPHEADER, $header);
     $censys_curl_response = curl_exec($ch);
     $err = curl_error($ch);
     curl_close($ch);

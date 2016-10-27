@@ -9,11 +9,11 @@
 </head>
 <body>
 	<div class="container">
-		<form action="query.php">
+		<form method="get" action="query.php">
 			<div class="row">
 				<div class="col-sm-12 text-center">
 					<h1>Shodan/Censys</h1>
-					<input name="query"  placeholder="Search" />
+					<input name="input"  placeholder="Search" />
 				</div> 
 			</div>
 			<div class="row">
@@ -28,15 +28,9 @@
 			</div>
 			<div class="col-sm-6 text-center">
 				<h3>Censys Results</h3>
+				</div>
 			</div> 					
 		</div>
 	</div>
-    
-  	<div id="domain2ip">
-    	<form method="get" action="query.php" >
-        <input name="input" placeholder="Enter Domain or IP" />
-        <button type="submit" value="Find IP">Find IP Address</button>
-        </form>
-    </div>
 </body>
 </html>
