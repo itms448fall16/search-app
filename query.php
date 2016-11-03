@@ -83,7 +83,7 @@ function orgShodan(){
 
 
 /*
- * Start of API for census
+ * Start of API for censys
  *
  */
 
@@ -101,6 +101,26 @@ function censys($i)
 
     $UID="7ac0c4fa-97d3-4d8d-801d-085f7a279928";
     $SECRET = "X0TjXpDMzWTgV1F1QVFukOSyMImL7Efm";
+<<<<<<< HEAD
+    $censys_url = "https://www.censys.io/api/v1/view/ipv4/$ip";
+    
+	
+$data = array("UID" => $UID, "SECRET" => $SECRET);                                                                    
+$data_string = json_encode($data);                                                                                   
+                                                                                                                     
+$ch = curl_init();                               
+curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);   
+curl_setopt($ch, CURLOPT_URL, $censys_url);                               
+curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");                                                                     
+curl_setopt($ch, CURLOPT_POSTFIELDS, $data_string);                                                                  
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);                                                                      
+curl_setopt($ch, CURLOPT_HEADER, array(                                                                          
+    'Content-Type: application/json',                                                                                
+    'Content-Length: ' . strlen($data_string))                                                                       
+);                                                                                                                   
+                                                                                                                     
+  $result = curl_exec($ch);
+=======
 	$header = ("UID: " + $UID, "SECRET: " + $SECRET);
     $censys_url = "https://www.censys.io/api/v1/view/ipv4/$ip";
     $ch = curl_init();
@@ -109,15 +129,20 @@ function censys($i)
     curl_setopt($ch, CURLOPT_URL, $censys_url);
 	curl_setopt($ch, CURLOPT_HTTPHEADER, $header);
     $censys_curl_response = curl_exec($ch);
+>>>>>>> 9a5b71a50f6526daf3707de8469cf576838526bf
     $err = curl_error($ch);
     curl_close($ch);
-    if(empty($err)){
-        print_r($censys_curl_response);
+    if(empty($err)) {
+        $obj = json_decode($result, true);
+        /*
+         * using print_r() takes browser to the site
+         */
+        print_r($obj);
     }
-    else {
+    else{
         var_dump($err);
     }
-    $decoded = json_decode($curl_response, true);
+	 
 }
 ?>
 
